@@ -1,0 +1,7 @@
+name: ReturnToZero
+version: unspecified
+main: org.cubit.returntozero.ReturnToZero
+api-version: 1.13
+description: Plugin file generated with Wolfradle
+softdepend:
+  - KotlinCraftLib

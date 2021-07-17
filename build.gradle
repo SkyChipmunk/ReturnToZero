@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
+    id 'skywolf46.wolfradle' version "1.1.5"
+    //id("com.github.johnrengelman.shadow") version "2.0.4"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("http://dja.kr:55201/spigot")
+    }
+    maven {
+        url = uri("http://dja.kr:55201/lesson")
+        credentials {
+            username "lesson"
+            password "AqIOv/+5WZwKSv/W7pq68g2xPI2CgH96RKsmfT/7b9+GVtxBFI9NJYsZNyj5Yldi"
+        }
+    }
+}
+
+dependencies {
+    spigotApi("1.16.5")
+    compileOnly('org.cubit:kotlin-craftLib:1.0.0')
+}
+
+//jar {
+//    finalizedBy("shadowJar")
+//}
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "Reposilite"
+            url = uri("http://dja.kr:55201/lesson")
+            credentials {
+                username "lesson"
+                password "AqIOv/+5WZwKSv/W7pq68g2xPI2CgH96RKsmfT/7b9+GVtxBFI9NJYsZNyj5Yldi"
+            }
+        }
+    }
+    publications {
+        create("jar", MavenPublication) {
+            groupId 'org.cubit'
+            artifactId 'PanultyWorld'
+            version '1.0.0'
+            from components.java
+        }
+    }
+}
