@@ -18,7 +18,7 @@ class ReturnToZeroListener : Listener {
         val itemStack = entity.killer?.inventory?.itemInMainHand ?: ItemStack(Material.AIR)
         if (ReturnToZeroData.returnToZeroMap.containsKey(itemStack.type)) {
             itemStack.adjustItemKill()
-            //if (itemStack.type == Material.DIAMOND_SWORD && itemStack.itemMeta?.lore?.contains(FINAL_MONSTERS_KILLED)!!) return
+            if (itemStack.type == Material.DIAMOND_SWORD && itemStack.itemMeta?.lore?.contains(FINAL_MONSTERS_KILLED)!!) return
             entity.killer?.getReturnToZeroItem()
         }
     }
